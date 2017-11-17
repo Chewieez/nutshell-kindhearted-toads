@@ -10,12 +10,13 @@ const getUser = require("../auth/getActiveUser")
 const fillFunc = require("./fill")
 const getNews = require("./getNews")
 const addEvents = require("./eventListeners");
-
+const getDatabase = require("../database")
+const getFriends = require("../auth/getFriends")
 
 const newsWidget = makeWidget()
 
 
-newsWidget.init = function () {
+newsWidget.init = () => {
     //create new widget object
 
     // build up a dom string for the additional unique elements for this widget, such as input fields and buttons that will be placed under the nested widgetContainer
@@ -27,10 +28,18 @@ newsWidget.init = function () {
     newsWidget.container = document.querySelector(".newsContainer")
     newsWidget.user = getUser();
     newsWidget.getNews = getNews;
-    newsWidget.fill = fillFunc
+    newsWidget.fill = fillFunc;
+
     newsWidget.populate = function () {
-        this.fill(this.getNews())
+        getDatabase(DB => {
+            let friends = getFriends(DB)
+            let news = this.getNews(DB, friends)
+            this.fill(news)
+        })
     }
+    // newsWidget.populate = function () {
+    //     this.fill(this.getNews())
+    // }
     newsWidget.populate()
     addEvents(newsWidget)
 }

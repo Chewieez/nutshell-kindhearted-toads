@@ -2,15 +2,17 @@
 //Purpose: Get all news objects from the database
 
 
-const database = require("../database");
+// const database = require("../database");
 const getActiveUser = require("../auth/getActiveUser");
-const getFriends = require("../auth/getFriends");
+// const getFriends = require("../auth/getFriends");
 
-const getNews = function () {
+const getNews = function (database, friends) {
+    
+    const db = database
     const user = getActiveUser()
-    const friends = getFriends()
+    // const friends = getFriends()
 
-    let db = database()
+    // let db = database()
     let news = db.news
     let filteredNews = news
         .filter(t => t.userId === user.userId || friends.includes(t.userId))

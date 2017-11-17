@@ -45,7 +45,7 @@ const addEvents = () => {
 
         // handle the login button errors
         if (event.target === btnLogin) {
-            debugger
+            
             if (username.length < 1) {
                 toaster.makeToast("please enter a valid username",5000);
                 toaster.makeToast("Oops...",2000)

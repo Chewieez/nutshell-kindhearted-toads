@@ -3,15 +3,14 @@
  * Gets friends data from the database for the user
  * Returns: userid, username and email, friendshipId
  */
-const database = require("../database");
 const getActiveUser = require("../auth/getActiveUser");
 
-const getFriends = function() {
+const getFriends = function(db) {
     const user = getActiveUser();
     let filteredUsers = [];
-    // get all the current users friends
+    
     try {
-        let db = database();
+        // let db = database();
         let friends = db.friends;
         let filteredFriends = friends
             .filter(t=> t.userId === user.userId);

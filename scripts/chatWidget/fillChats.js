@@ -18,10 +18,10 @@ const isPrivate = function (msg) {
 
 
 const fillChats = function () {
-    let workingThis = this;
+    
     // get the freshest database
     // const DB = getDatabase()
-    getDatabase(function(database) { 
+    getDatabase(database => { 
         // store the database in a variable
         const DB = database
 
@@ -45,7 +45,7 @@ const fillChats = function () {
                 validate(msg, DB.users)
                 
                 // check if the author of the message is the current Active user OR the recipient of the message is the current Active user
-                if (messageAuthor.id === workingThis.user.userId || msg.rcp.toLowerCase() === workingThis.user.userName.toLowerCase()) {
+                if (messageAuthor.id === this.user.userId || msg.rcp.toLowerCase() === this.user.userName.toLowerCase()) {
                     // populate chat msg container dom string with data from each chat message
                     chatMsgDomString += `
                     <p class="chatWidget__msgTimeStamp">${readableTimeStamp}</p><p class="chatWidget__msg isPrivate" data-msg-id="${msg.id}"><span class="chatWidget__author" data-author-id="${messageAuthor.id}" data-author="${messageAuthor.userName}">${messageAuthor.userName}:</span><span class="chatWidget__content" data-msg-id="${msg.id}"> ${msg.content}</span>
@@ -60,7 +60,7 @@ const fillChats = function () {
             
             
             // check if the current Active user is the author of the message, if so, add edit button
-            if (workingThis.user.userId === messageAuthor.id) {
+            if (this.user.userId === messageAuthor.id) {
                 
                 chatMsgDomString += `<button class="chatWidget__editBtn btn hidden" id="editBtn_${msg.id}" data-msg-id="${msg.id}" data-author="${msg.userId}">Edit</button>
                 `
@@ -73,7 +73,7 @@ const fillChats = function () {
         // populate chat container with dom string
         chatContainerEl.innerHTML = chatMsgDomString
         // run autoScroll function automatically scroll to the bottom of the list of messages 
-        autoScroll(workingThis.containerName)
+        autoScroll(this.containerName)
 
     })
 
