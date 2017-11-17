@@ -6,6 +6,8 @@ const getUser = require("../auth/getActiveUser")
 const generateEventContent = require("./generateEventContent")
 const addlisteners = require("./addlisteners")
 const {makeWidget, defaultWidget} = require("../widgetTemplate")
+const autoScroll = require("../autoScroll")
+const getDatabase = require("../database")
 
 //create new widget object
 const eventWidget = makeWidget()
@@ -26,10 +28,11 @@ eventWidget.init = function() {
     const user = getUser();
     
     const fillEvents = function() {
-        let events = getEvents(user)
-        generateEventContent(events)
-        const autoScroll = require("../autoScroll")
-        autoScroll(eventWidget.containerName)
+        getDatabase(DB => {    
+            let events = getEvents(user, DB)
+            generateEventContent(events, DB)
+            autoScroll(this.containerName)
+        })
     }
 
     eventWidget.widgetContainer = "eventsWidget"

@@ -5,6 +5,8 @@ const {makeWidget, defaultWidget} = require("../widgetTemplate")
 const getUser = require("../auth/getActiveUser");
 const fillChats = require("./fillChats")
 const createChatListener = require("./chatEventListener")
+const getDatabase = require("../database")
+
 
 //create new widget object
 const chatWidget = makeWidget()
@@ -27,8 +29,15 @@ chatWidget.init = function () {
     chatWidget.widgetContainer = "chatWidget";
     // attach active user object to chatWidget
     chatWidget.user = user;
+    chatWidget.fillChats = fillChats
+    
     // attach the function to fill the chatWidget container with chat messages
-    chatWidget.populate = fillChats
+    chatWidget.populate = function() {
+        getDatabase(DB => {
+            debugger
+            this.fillChats(DB)
+        })
+    }
     chatWidget.containerName = "chatContainer"
     
     // run populate() function to start the chatWidget with any chat messages in database

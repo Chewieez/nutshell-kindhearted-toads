@@ -4,7 +4,7 @@
 const getUserName = require("./getUserName")
 const getNumberOfAttendees = require("./getNumberOfAttendees")
 
-const generateEvents = function(events) {
+const generateEvents = function(events, db) {
 
     const container = document.querySelector(".eventsContainer");
     container.innerHTML = "";
@@ -22,11 +22,11 @@ const generateEvents = function(events) {
             let checked = ""
             let disabled = ""
             let statusElement = ""
-            let status = `Created by ${getUserName(event.userId)}`
+            let status = `Created by ${getUserName(event.userId, db)}`
             
             //Set conditions if you are the event creator
             if (event.creator){
-                let eventAttendees = getNumberOfAttendees(event.id)
+                let eventAttendees = getNumberOfAttendees(event.id, db)
                 disabled = "disabled"
                 statusElement = `<button class="event-delete event-delete__${event.id}">Delete</button>`
                 status = `Creator - <strong style="font-size:.8em">${eventAttendees} Guests</strong>`
