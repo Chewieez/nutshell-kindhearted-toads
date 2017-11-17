@@ -7,6 +7,7 @@ const login = require("./login");
 const createNewUser = require("./createNewUser");
 const dashboardInit = require("../dashboardInit");
 const Toaster = require("../toaster/toaster");
+const getDatabase = require("../database")
 
 // elements you would click
 const btnLogin = document.querySelector(".login__button-login");
@@ -40,8 +41,11 @@ const addEvents = () => {
             return re.test(email);
         }
 
+
+
         // handle the login button errors
         if (event.target === btnLogin) {
+            debugger
             if (username.length < 1) {
                 toaster.makeToast("please enter a valid username",5000);
                 toaster.makeToast("Oops...",2000)
@@ -55,14 +59,29 @@ const addEvents = () => {
                 emailEl.focus();
                 return;
             }
-            if (login(username, email)) {
-                dashboardInit();
-            } else {
-                //display inline error message
-                //message.innerHTML = "username/email does not exist"
-                toaster.makeToast("username/email does not exist",7000);
-                usernameEl.focus();
-            }
+
+            getDatabase(DB => {
+                // if validate user
+                if (login(username, email, DB)) {
+                    // save user to session 
+                    dashboardInit();
+                    // show dashboard
+                } else {    // else show error
+                    toaster.makeToast("username/email does not exist",7000);
+                    usernameEl.focus();
+                }
+            })
+
+
+
+            // if (getDatabase(useLogin) {
+            //     dashboardInit();
+            // } else {
+            //     //display inline error message
+            //     //message.innerHTML = "username/email does not exist"
+            //     toaster.makeToast("username/email does not exist",7000);
+            //     usernameEl.focus();
+            // }
         }
 
 

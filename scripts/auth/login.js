@@ -3,11 +3,13 @@
 
 
 const { validateUser, validateNewUser } = require("./loginValidation")
-const NutshellDatabase = require("../database")
 
 
-const login = function (userName, email) {
-    const user = validateUser(userName, email, NutshellDatabase().users)
+
+const login = function (userName, email, DB) {
+    
+    const user = validateUser(userName, email, DB.users)
+
     if (user) {
         const storedUserInfo = JSON.stringify({ "userId": user.id, "userName": user.userName, "isEditing": false })
         sessionStorage.setItem("userInfo", storedUserInfo)
@@ -16,6 +18,7 @@ const login = function (userName, email) {
     else {
         return false
     }
+    
 }
 
 module.exports = login

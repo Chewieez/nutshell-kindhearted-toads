@@ -45,11 +45,11 @@ const dashboardInit = function() {
     dashboard.style.display = "block";
 
     // initialize each dashboard widget
-    newsWidget.init()
-    taskWidget.init()
     chatWidget.init()
-    eventWidget.init()
-    friendsWidget.init()
+    // newsWidget.init()
+    // taskWidget.init()
+    // eventWidget.init()
+    // friendsWidget.init()
     
     // populate each widget with content
     global.set([newsWidget, taskWidget, chatWidget, eventWidget, friendsWidget])

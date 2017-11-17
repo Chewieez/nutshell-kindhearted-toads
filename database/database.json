@@ -1,0 +1,174 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "timeStamp": 1510938344392,
+            "userName": "Steve",
+            "email": "me@me.com"
+        },
+        {
+            "id": 2,
+            "timeStamp": 1510938344392,
+            "userName": "Mark",
+            "email": "you@you.com"
+        },
+        {
+            "id": 3,
+            "timeStamp": 1510938344393,
+            "userName": "Krista",
+            "email": "foo@foo.com"
+        },
+        {
+            "id": 4,
+            "timeStamp": 1510938344393,
+            "userName": "Greg",
+            "email": "greg@greg.com"
+        },
+        {
+            "id": 5,
+            "timeStamp": 1510938344393,
+            "userName": "Krys",
+            "email": "krys@krys.com"
+        },
+        {
+            "id": 6,
+            "timeStamp": 1510938344393,
+            "userName": "Chris",
+            "email": "chris@chris.com"
+        },
+        {
+            "id": 7,
+            "timeStamp": 1510938344393,
+            "userName": "Sean",
+            "email": "sean@sean.com"
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "timeStamp": 1510938344399,
+            "userId": 1,
+            "name": "Event example :: Foo Fighters",
+            "eventDate": "2017-12-05",
+            "location": "Bridgestone"
+        },
+        {
+            "id": 2,
+            "timeStamp": 1510938344399,
+            "userId": 1,
+            "name": "Event example :: Boo Bighters",
+            "eventDate": "2017-12-15",
+            "location": "Bridgeblock"
+        },
+        {
+            "id": 3,
+            "timeStamp": 1510938344399,
+            "userId": 1,
+            "name": "Event example :: Doo Dighters",
+            "eventDate": "2017-12-30",
+            "location": "Walkwayestone"
+        }
+    ],
+    "messages": [
+        {
+            "id": 1,
+            "timeStamp": 1510938344393,
+            "userId": 1,
+            "content": "This is where a chat message will display"
+        },
+        {
+            "id": 2,
+            "timeStamp": 1510938344394,
+            "userId": 1,
+            "content": "More Displayed Content"
+        },
+        {
+            "id": 3,
+            "timeStamp": 1510938344394,
+            "userId": 1,
+            "content": "Test to see if this gets a userId info attached"
+        },
+        {
+            "id": 4,
+            "timeStamp": 1510938344394,
+            "userId": 1,
+            "content": "I just want more than 4 messages"
+        },
+        {
+            "id": 5,
+            "timeStamp": 1510938344394,
+            "userId": 1,
+            "content": "Five or more is better"
+        },
+        {
+            "id": 6,
+            "timeStamp": 1510938344394,
+            "userId": 1,
+            "content": "Maybe even ten!"
+        }
+    ],
+    "friends": [
+        {
+            "id": 1,
+            "userId": 1,
+            "timeStamp": 1510938344395,
+            "friendId": 3
+        },
+        {
+            "id": 2,
+            "userId": 1,
+            "timeStamp": 1510938344396,
+            "friendId": 5
+        },
+        {
+            "id": 3,
+            "userId": 1,
+            "timeStamp": 1510938344396,
+            "friendId": 2
+        }
+    ],
+    "news": [
+        {
+            "id": 1,
+            "timeStamp": 1510938344394,
+            "userId": 1,
+            "title": "This is an example of a News Article",
+            "synopsis": "put a summary of the article here",
+            "url": "https://www.quantamagazine.org/newfound-wormhole-allows-information-to-escape-black-holes-20171023/"
+        },
+        {
+            "id": 2,
+            "timeStamp": 1510938344395,
+            "userId": 1,
+            "title": "This is the same article again!",
+            "url": "https://www.quantamagazine.org/newfound-wormhole-allows-information-to-escape-black-holes-20171023/"
+        }
+    ],
+    "tasks": [
+        {
+            "id": 1,
+            "timeStamp": 1510938344398,
+            "userId": 1,
+            "taskName": "Task example :: Take out garbage",
+            "completionDate": "2017-12-15",
+            "completed": false
+        },
+        {
+            "id": 2,
+            "timeStamp": 1510938344398,
+            "userId": 1,
+            "taskName": "Second task example :: Bring the garbage back in",
+            "completionDate": "2017-12-25",
+            "completed": false
+        },
+        {
+            "id": 3,
+            "timeStamp": 1510938344398,
+            "userId": 1,
+            "taskName": "Third Example",
+            "completionDate": "2017-10-05",
+            "completed": false
+        }
+    ],
+    "eventJoin": []
+}

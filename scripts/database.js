@@ -2,12 +2,19 @@
 // Purpose: to retrieve database from local storage and return it.
 
 
-function getDatabase () {
 
-    // check if database exists in local storage and store in variable
-    let DB = JSON.parse(localStorage.getItem("NutshellDatabase")) || null
+function getDatabase (callbackFn) {
 
-    return DB
-}
+    $.ajax({
+        "url": "/database/database.json",
+        "method": "GET"
+    }).then( function(database){
+
+        callbackFn(database)
+
+    }) // end of .then function
+} // end of getDatabase function
+
+
 
 module.exports = getDatabase;
