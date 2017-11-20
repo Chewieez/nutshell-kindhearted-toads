@@ -77,7 +77,7 @@ p {
 .hidden {
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0s linear 2s, opacity 300ms;
+    transition: visibility 0s linear 2s, opacity 700ms;
 }
 
 /* changes the width of the chat widget when viewport is less than 850 to match all the other widgets as they stack vertically. */
