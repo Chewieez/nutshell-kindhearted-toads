@@ -138,7 +138,7 @@ const createChatListener = (chatWidget) => {
         }
     })
 
-    // detects when the user has moved mouse out of a chat message
+    // detects when the user has moved mouse out of a chat message and hides edit button
     chatContainerEl.addEventListener("mouseout", event => {
         // check if the target has the parent of the chat Widget message
         if (event.target.parentElement.className.includes("chatWidget__msg")) {            
